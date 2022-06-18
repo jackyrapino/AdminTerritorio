@@ -5,11 +5,13 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
+import { PrivateHomeComponent } from './private/pages/private-home/private-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PrivateHomeComponent
   ],
   imports: [
     BrowserModule,
