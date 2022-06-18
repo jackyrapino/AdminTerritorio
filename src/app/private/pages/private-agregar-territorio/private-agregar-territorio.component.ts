@@ -10,40 +10,70 @@ import { FormValidator } from 'src/app/shared/form-validator';
   styleUrls: ['./private-agregar-territorio.component.scss']
 })
 export class PrivateAgregarTerritorioComponent extends FormValidator implements OnInit {
-  tipoSeleccionado: string = '';
+  tipoSeleccionado: string;
   territorio: any;
+  territorios: any;
 
-  constructor(private FB: FormBuilder, private storageSVC:StorageService, private alertSVC:AlertService) {
+  constructor(private FB: FormBuilder, private storageSVC: StorageService, private alertSVC: AlertService) {
     super();
   }
 
   ngOnInit(): void {
+    this.selectFijos();
+    this.getTerritorios();
     this.initializeForm();
   }
 
-  definirMensajesError(): void {}
+  getTerritorios() {
+    this.storageSVC.GetAll(`territorios-${this.tipoSeleccionado}`).subscribe((data) => {
+      this.territorios = data;
+    });
+  }
+
+  existeTerritorio() {
+    let existe = false;
+    this.territorios.forEach((territorio) => {
+      if (territorio.id === this.formGroup.value.numero) {
+        existe = true;
+        this.formGroup.controls.numero.setErrors({ existe: true });
+      }
+    });
+    console.log(existe);
+    return existe;
+  }
+
+  definirMensajesError(): void {
+    this.mensajesError = {
+      numero: {
+        required: 'El número es requerido',
+        pattern: 'Solo puede ser un número',
+        existe: 'El territorio ya existe'
+      },
+      numeros: {
+        required: 'Los números son requeridos',
+        pattern: 'Solo puede ser un número'
+      }
+    };
+  }
 
   addTerritorio() {
-    let numeroFormateados = (this.formGroup.value.numeros).split('\n');
+    let numeroFormateados = this.formGroup.value.numeros.split('\n');
 
     this.territorio = {
       id: this.formGroup.value.numero,
       tipo: this.tipoSeleccionado,
       numeros: numeroFormateados
     };
-
-   this.storageSVC.InsertCustomID('territorios',this.territorio.id ,this.territorio);
+    this.storageSVC.InsertCustomID(`territorios-${this.tipoSeleccionado}`, this.territorio.id, this.territorio);
     this.alertSVC.alertBottom('success', 'Territorio agregado correctamente');
-    console.log(this.territorio); 
-    
-
+    this.formGroup.reset();
+    console.log(this.territorio);
   }
 
   initializeForm() {
     this.formGroup = this.FB.group({
-      numero: new FormControl('', [Validators.required]),
-      tipo: new FormControl('', [Validators.required]),
-      numeros: new FormControl('', [Validators.required])
+      numero: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]),
+      numeros: new FormControl('', [Validators.required, Validators.pattern('^[0-9-)()/\n ]*$')])
     });
   }
 
@@ -52,6 +82,7 @@ export class PrivateAgregarTerritorioComponent extends FormValidator implements 
     this.removeAllClass();
     let button = document.querySelector('#fijos') as HTMLElement;
     button.classList.add('selected');
+    this.getTerritorios();
   }
 
   selectCelulares() {
@@ -59,6 +90,7 @@ export class PrivateAgregarTerritorioComponent extends FormValidator implements 
     this.removeAllClass();
     let button = document.querySelector('#celulares') as HTMLElement;
     button.classList.add('selected');
+    this.getTerritorios();
   }
 
   removeAllClass() {

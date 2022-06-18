@@ -17,3 +17,29 @@
   justify-content: center;
   margin: auto;
 }
+
+.box-filtros{
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.selected{
+  background-color: #bb1bf5;
+  box-shadow: none !important;
+  border: none;
+}
+
+
+
+button, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  box-shadow: none !important;
+}
+
+button{
+  width: 160px;
+  height: 50px;
+  font-size: 1.2em;
+}
