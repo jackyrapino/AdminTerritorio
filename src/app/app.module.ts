@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -12,7 +13,8 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment)
   ],
   providers: [],
   bootstrap: [AppComponent]
