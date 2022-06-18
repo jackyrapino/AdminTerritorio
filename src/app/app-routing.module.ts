@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 import { PrivateHomeComponent } from './private/pages/private-home/private-home.component';
+import { PublicHomeComponent } from './public/pages/public-home/public-home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: PublicHomeComponent },
   { path: 'admin', component: PrivateHomeComponent },
 ];
 
