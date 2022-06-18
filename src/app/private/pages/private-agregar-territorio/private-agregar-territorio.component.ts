@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { StorageService } from 'src/app/services/storage.service';
 import { FormValidator } from 'src/app/shared/form-validator';
 
 @Component({
@@ -9,29 +10,35 @@ import { FormValidator } from 'src/app/shared/form-validator';
 })
 export class PrivateAgregarTerritorioComponent extends FormValidator implements OnInit {
   tipoSeleccionado: string = '';
-  territorio:any;
+  territorio: any;
 
-  constructor(private FB: FormBuilder) {
+  constructor(private FB: FormBuilder, storageSVC:StorageService) {
     super();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initializeForm();
+  }
 
-definirMensajesError(): void {
-  
-}
+  definirMensajesError(): void {}
 
+  addTerritorio() {
+    let numeroFormateados = (this.formGroup.value.numeros).split('\n');
 
-  addTerritorio(){
-    
+    this.territorio = {
+      numero: this.formGroup.value.numero,
+      tipo: this.tipoSeleccionado,
+      numeros: numeroFormateados
+    };
+    console.log(this.territorio);
+
   }
 
   initializeForm() {
     this.formGroup = this.FB.group({
-      name: new FormControl('', [Validators.required]),
-      price: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      image: new FormControl('')
+      numero: new FormControl('', [Validators.required]),
+      tipo: new FormControl('', [Validators.required]),
+      numeros: new FormControl('', [Validators.required])
     });
   }
 
