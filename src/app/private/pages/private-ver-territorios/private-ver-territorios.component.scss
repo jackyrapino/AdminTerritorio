@@ -1,3 +1,13 @@
 .searcher{
     padding: 20px;
 }
+
+.territorios{
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 15px;
+}
