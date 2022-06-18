@@ -1,0 +1,22 @@
+.position-button {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+}
+
+button {
+    width: 80vw;
+    height: 16vh;
+    font-size: 1.6em;
+}
+
+.container-buttons {
+    margin-top: 25vh;
+}
