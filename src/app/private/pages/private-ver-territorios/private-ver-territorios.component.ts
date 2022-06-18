@@ -8,6 +8,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class PrivateVerTerritoriosComponent implements OnInit {
   territorios: any;
+  searchParam:any;
 
   constructor(private storageSVC: StorageService) {}
 
@@ -20,5 +21,9 @@ export class PrivateVerTerritoriosComponent implements OnInit {
       this.territorios = data;
       console.log(data)
     });
+  }
+
+  searchTerritorio() {
+    
   }
 }
