@@ -10,6 +10,7 @@ import { PrivateVerTerritoriosComponent } from './private/pages/private-ver-terr
 import { PrivateAgregarTerritorioComponent } from './private/pages/private-agregar-territorio/private-agregar-territorio.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CardTerritorioComponent } from './shared/card-territorio/card-territorio.component';
+import { SolicitarTerritorioComponent } from './public/pages/solicitar-territorio/solicitar-territorio.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,15 @@ import { CardTerritorioComponent } from './shared/card-territorio/card-territori
     PrivateVerTerritoriosComponent,
     PrivateAgregarTerritorioComponent,
     NavbarComponent,
-    CardTerritorioComponent
+    CardTerritorioComponent,
+    SolicitarTerritorioComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container container-center">
+    <div class="row row-cols-1">
+        <div class="col center" style="text-align: center">
+            <h2>Ingrese su nombre</h2>
+        </div>
+        <div class="col center" style="text-align: center">
+            <input type="text" class="form-control" placeholder="Escriba aqui su nombre" />
+        </div>
+
+        <div *ngFor="let uno of hermanos">{{ uno.nombre }}</div>
+
+        <div style="text-align: center; padding: 3%">
+            <button class="btn-color">Solicitar</button>
+        </div>
+    </div>
+</div>
