@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-private-home',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivateHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToTerritorios(){
+    this.router.navigateByUrl('/admin/ver-territorios');
+  }
+
+  goToAgregarTerrritorio(){
+    this.router.navigateByUrl('/admin/agregar-territorio');
   }
 
 }
