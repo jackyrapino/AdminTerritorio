@@ -1,0 +1,21 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+}
+
+.container-center {
+    margin-top: 25vh;
+}
+
+.btn-color {
+    background-color: rgb(104, 44, 201);
+    border-radius: 15px;
+    border: none !important;
+    color: white;
+    width: 20vw;
+    height: 8vh;
+}
