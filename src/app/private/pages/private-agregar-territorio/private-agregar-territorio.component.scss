@@ -1,0 +1,38 @@
+.form-alta {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.card{
+    padding: 20px;
+    border-radius: 18px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.btn-tipo{
+    width: 100px;
+    height: 40px;
+}
+
+.selected{
+    background-color: #bb1bf5;
+    box-shadow: none !important;
+    border: none;
+}
+
+.telefonos-box{
+    text-align: center;
+}
+
+button, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    box-shadow: none !important;
+}

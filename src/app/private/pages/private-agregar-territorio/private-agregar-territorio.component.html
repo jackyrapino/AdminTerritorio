@@ -1,1 +1,27 @@
-<p>private-agregar-territorio works!</p>
+<section class="form-alta">
+  <div class="card">
+    <h3 class="text-center">Alta de territorio</h3>
+
+    <div class="numero-territorio mt-2">
+      <label for="">Numero de territorio</label>
+      <input type="text" placeholder="Ingrese numero de territorio..." class="form-control" />
+    </div>
+
+    <div class="tipo-de-territorio mt-4">
+      <h5 class="text-center">Tipo de territorio</h5>
+      <div class="buttons">
+        <button class="btn btn-primary btn-tipo" id="fijos" (click)="selectFijos()">Fijos</button>
+        <button class="btn btn-primary btn-tipo" id="celulares" (click)="selectCelulares()">Celulares</button>
+      </div>
+    </div>
+
+    <div class="telefonos-box mt-4">
+        <h5 class="text-center mt-2">Numeros de telefono</h5>
+        <textarea placeholder="Pegue los telefonos aqui.." name="" id="" cols="20" rows="8"></textarea>
+    </div>
+
+
+        <button class="btn btn-success mt-3 mb-1" (click)="addTerritorio()">Agregar</button>
+
+  </div>
+</section>

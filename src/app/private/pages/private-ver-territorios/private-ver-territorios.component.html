@@ -2,13 +2,15 @@
 <section>
   <div class="searcher">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Buscar" />
+      <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="searchParam" />
     </div>
   </div>
 
-  <section class="territorios">
-    <article *ngFor="let uno of territorios">
-      <app-card-territorio [territorio]="uno"></app-card-territorio>
-    </article>
-  </section>
+  <div class="cards">
+    <section class="territorios">
+      <article *ngFor="let uno of territorios | searcher: searchParam:'id'">
+        <app-card-territorio [territorio]="uno"></app-card-territorio>
+      </article>
+    </section>
+  </div>
 </section>

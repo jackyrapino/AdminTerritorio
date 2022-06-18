@@ -10,6 +10,8 @@ import { PrivateVerTerritoriosComponent } from './private/pages/private-ver-terr
 import { PrivateAgregarTerritorioComponent } from './private/pages/private-agregar-territorio/private-agregar-territorio.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CardTerritorioComponent } from './private/card-territorio/card-territorio.component';
+import { FormsModule } from '@angular/forms';
+import { SearcherPipe } from './pipes/searcher.pipe';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import { CardTerritorioComponent } from './private/card-territorio/card-territor
     PrivateVerTerritoriosComponent,
     PrivateAgregarTerritorioComponent,
     NavbarComponent,
-    CardTerritorioComponent
+    CardTerritorioComponent,
+    SearcherPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
