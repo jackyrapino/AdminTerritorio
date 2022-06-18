@@ -9,12 +9,11 @@ import { PublicHomeComponent } from './public/pages/public-home/public-home.comp
 import { PrivateVerTerritoriosComponent } from './private/pages/private-ver-territorios/private-ver-territorios.component';
 import { PrivateAgregarTerritorioComponent } from './private/pages/private-agregar-territorio/private-agregar-territorio.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-<<<<<<< HEAD
 import { CardTerritorioComponent } from './private/card-territorio/card-territorio.component';
-=======
-import { CardTerritorioComponent } from './shared/card-territorio/card-territorio.component';
 import { SolicitarTerritorioComponent } from './public/pages/solicitar-territorio/solicitar-territorio.component';
->>>>>>> solicitar-territorio
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearcherPipe } from './pipes/searcher.pipe';
 
 @NgModule({
   declarations: [
@@ -26,10 +25,13 @@ import { SolicitarTerritorioComponent } from './public/pages/solicitar-territori
     NavbarComponent,
     CardTerritorioComponent,
     SolicitarTerritorioComponent,
+    SearcherPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
