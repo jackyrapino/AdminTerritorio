@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AlertService } from 'src/app/services/alert.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { FormValidator } from 'src/app/shared/form-validator';
 
@@ -12,7 +13,7 @@ export class PrivateAgregarTerritorioComponent extends FormValidator implements 
   tipoSeleccionado: string = '';
   territorio: any;
 
-  constructor(private FB: FormBuilder, storageSVC:StorageService) {
+  constructor(private FB: FormBuilder, private storageSVC:StorageService, private alertSVC:AlertService) {
     super();
   }
 
@@ -26,11 +27,15 @@ export class PrivateAgregarTerritorioComponent extends FormValidator implements 
     let numeroFormateados = (this.formGroup.value.numeros).split('\n');
 
     this.territorio = {
-      numero: this.formGroup.value.numero,
+      id: this.formGroup.value.numero,
       tipo: this.tipoSeleccionado,
       numeros: numeroFormateados
     };
-    console.log(this.territorio);
+
+   this.storageSVC.InsertCustomID('territorios',this.territorio.id ,this.territorio);
+    this.alertSVC.alertBottom('success', 'Territorio agregado correctamente');
+    console.log(this.territorio); 
+    
 
   }
 
