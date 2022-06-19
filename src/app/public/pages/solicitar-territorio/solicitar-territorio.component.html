@@ -5,13 +5,18 @@
             <h2>Ingrese su nombre</h2>
         </div>
         <div class="col center" style="text-align: center">
-            <input type="text" class="form-control" placeholder="Escriba aqui su nombre" />
+            <input type="text" [(ngModel)]="nombre" placeholder class="form-control" placeholder="Escriba aqui su nombre" />
         </div>
 
-        <div *ngFor="let uno of hermanos">{{ uno.nombre }}</div>
-
-        <div style="text-align: center; padding: 3%">
-            <button class="btn-color">Solicitar</button>
+        <div class="card-container" *ngIf="nombre">
+            <div *ngFor="let uno of hermanos | searcher: nombre:'nombre'" (click)="seleccionarHermano(uno)">
+                <article class="card" [id]="uno.id">
+                    {{ uno.nombre }}
+                </article>
+            </div>
         </div>
     </div>
 </div>
+<footer class="btn-container">
+    <button class="btn-color" [disabled]="!hermanoSeleccionado">Solicitar</button>
+</footer>
