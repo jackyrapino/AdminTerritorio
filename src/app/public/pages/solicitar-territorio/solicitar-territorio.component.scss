@@ -8,7 +8,7 @@
 }
 
 .container-center {
-    margin-top: 25vh;
+    margin-top: 5vh;
 }
 
 .btn-color {
@@ -16,6 +16,46 @@
     border-radius: 15px;
     border: none !important;
     color: white;
-    width: 20vw;
+    font-size: 1.3em;
+    width: 40vw;
     height: 8vh;
+}
+
+.btn-color:hover {
+    background-color: rgb(92, 26, 199);
+}
+
+.btn-color:disabled {
+    background-color: rgb(122, 93, 168);
+}
+
+.btn-container {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin-bottom: 40px;
+}
+
+.card {
+    width: 80vw;
+    height: 10vh;
+    font-size: 1.5em;
+    padding: 0.5em;
+    margin: 0.5em;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selected {
+    background-color: red;
 }
