@@ -12,10 +12,16 @@ export class PrivateVerTerritoriosComponent implements OnInit {
   territoriosCelulares: any;
   searchParam: any;
   loaded: boolean = false;
+  filtro:string;
 
   constructor(private storageSVC: StorageService) {}
 
   ngOnInit(): void {
+
+    setTimeout(() => {
+      this.loaded = true;
+    }, 1000);
+
     this.getTerritorios();
     setTimeout(() => {
       this.setFijos();
@@ -35,6 +41,7 @@ export class PrivateVerTerritoriosComponent implements OnInit {
   }
 
   setFijos() {
+    this.filtro = 'Fijos';
     this.territorios = this.territoriosFijos;
     this.removeClasses();
     let button = document.getElementById('fijos');
@@ -42,6 +49,7 @@ export class PrivateVerTerritoriosComponent implements OnInit {
   }
 
   setCelulares() {
+    this.filtro = 'Celulares';
     this.territorios = this.territoriosCelulares;
     this.removeClasses();
     let button = document.getElementById('celulares');
