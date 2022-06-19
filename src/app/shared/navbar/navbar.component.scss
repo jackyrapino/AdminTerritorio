@@ -1,3 +1,6 @@
+@import '../../../styles.scss';
+
+
 .nav-link {
   font-size: 1.4em;
   cursor: pointer;
@@ -10,5 +13,5 @@
 }
 
 nav{
-  background-color: rgb(91,60,136) !important;
+  background-color: $color-primary !important;
 }

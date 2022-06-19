@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 .position-button {
     text-align: center;
 }
@@ -15,7 +17,7 @@ button {
     width: 80vw;
     height: 16vh;
     font-size: 1.6em;
-    background-color: rgb(91,60,136);
+    background-color: $color-primary;
     border-color: rgb(91, 58, 141);
 }
 
