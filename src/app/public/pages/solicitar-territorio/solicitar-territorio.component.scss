@@ -34,11 +34,11 @@
 
 .selected {
     color: white;
-    background-color: rgb(92, 26, 199);;
+    background-color: rgb(91,60,136);
 }
 
 .btn-color {
-    background-color: rgb(104, 44, 201);
+    background-color: rgb(91,60,136);
     border-radius: 15px;
     border: none !important;
     color: white;
@@ -48,7 +48,7 @@
 }
 
 .btn-color:hover {
-    background-color: rgb(92, 26, 199);
+    background-color: rgb(80, 44, 132);
 }
 
 .btn-color:disabled {
@@ -57,12 +57,10 @@
 
 .btn-container {
     text-align: center;
-    position: absolute;
     bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
     margin-bottom: 40px;
 }
 

@@ -16,10 +16,11 @@
       </div>
     </div>
   </div>
+  <footer class="btn-container" *ngIf="!solicitud">
+    <button class="btn-color"  *ngIf="nombre" [disabled]="!hermanoSeleccionado" (click)="solicitar()">Solicitar</button>
+  </footer>
 </div>
-<footer class="btn-container" *ngIf="!solicitud">
-  <button class="btn-color" [disabled]="!hermanoSeleccionado" (click)="solicitar()">Solicitar</button>
-</footer>
+
 
 <section *ngIf="solicitud">
   <app-public-mi-territorio [territorio]="solicitud.territorio"></app-public-mi-territorio>

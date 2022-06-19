@@ -1,9 +1,14 @@
 .nav-link {
   font-size: 1.4em;
   cursor: pointer;
+  color: black;
 }
 
 .nav-fill .nav-item {
   text-align: start;
   padding: 8px;
+}
+
+nav{
+  background-color: rgb(91,60,136) !important;
 }
