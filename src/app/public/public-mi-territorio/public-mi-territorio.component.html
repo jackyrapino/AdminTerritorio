@@ -1,7 +1,13 @@
-<section>
-  <div class="card card-titulo mt-3">
-    <h3 class="center-text">{{ territorio.id }}</h3>
+<section class="container">
+  <div class="row p-4">
+    <div class="card card-titulo mt-3 col">
+      <h4 class="center-text">{{ territorio.id }}</h4>
+    </div>
+    <div class="card card-titulo mt-3 col">
+      <h4 class="center-text">{{ territorio.tipo | titlecase }}</h4>
+    </div>
   </div>
+
 
   <div class="card-container">
     <div *ngFor="let num of territorio.numeros">

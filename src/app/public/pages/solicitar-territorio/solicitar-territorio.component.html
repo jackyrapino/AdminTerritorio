@@ -11,7 +11,7 @@
     <div class="card-container" *ngIf="nombre">
       <div *ngFor="let uno of hermanos | searcher: nombre:'nombre'" (click)="seleccionarHermano(uno)">
         <article class="card" [id]="uno.id">
-          {{ uno.nombre }}
+         <div> {{ uno.nombre }}</div>
         </article>
       </div>
     </div>

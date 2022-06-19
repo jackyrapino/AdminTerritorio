@@ -9,10 +9,25 @@ import { Router } from '@angular/router';
 })
 export class PublicHomeComponent implements OnInit {
   tipoSeleccionado: any;
+  solicitud: any;
 
   constructor(private router: Router, private location: Location) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getSolicitud();
+  }
+
+  getSolicitud() {
+    this.solicitud = JSON.parse(localStorage.getItem('solicitud'));
+    this.validarSolicitud();
+ 
+  }
+
+  validarSolicitud() {
+    if (this.solicitud) {
+      this.router.navigate(['/solicitar-territorio/' + this.solicitud.tipo]);
+    }
+  }
 
   gotoSolicitarTerritorioFijos() {
     this.tipoSeleccionado = 'fijos';
