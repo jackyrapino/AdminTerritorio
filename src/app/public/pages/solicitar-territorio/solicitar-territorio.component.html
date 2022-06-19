@@ -1,22 +1,22 @@
 <app-navbar></app-navbar>
 <div class="container container-center">
-    <div class="row row-cols-1">
-        <div class="col center" style="text-align: center">
-            <h2>Ingrese su nombre</h2>
-        </div>
-        <div class="col center" style="text-align: center">
-            <input type="text" [(ngModel)]="nombre" placeholder class="form-control" placeholder="Escriba aqui su nombre" />
-        </div>
-
-        <div class="card-container" *ngIf="nombre">
-            <div *ngFor="let uno of hermanos | searcher: nombre:'nombre'" (click)="seleccionarHermano(uno)">
-                <article class="card" [id]="uno.id">
-                    {{ uno.nombre }}
-                </article>
-            </div>
-        </div>
+  <div class="row row-cols-1">
+    <div class="col center" style="text-align: center">
+      <h2>Ingrese su nombre</h2>
     </div>
+    <div class="col center" style="text-align: center">
+      <input type="text" [(ngModel)]="nombre" placeholder class="form-control" placeholder="Escriba aqui su nombre" />
+    </div>
+
+    <div class="card-container" *ngIf="nombre">
+      <div *ngFor="let uno of hermanos | searcher: nombre:'nombre'" (click)="seleccionarHermano(uno)">
+        <article class="card" [id]="uno.id">
+          {{ uno.nombre }}
+        </article>
+      </div>
+    </div>
+  </div>
 </div>
 <footer class="btn-container">
-    <button class="btn-color" [disabled]="!hermanoSeleccionado">Solicitar</button>
+  <button class="btn-color" [disabled]="!hermanoSeleccionado" (click)="solicitar()">Solicitar</button>
 </footer>

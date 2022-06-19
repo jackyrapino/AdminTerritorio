@@ -15,9 +15,15 @@ const routes: Routes = [
     component: PrivateAgregarTerritorioComponent,
   },
   {
-    path: 'solicitar-territorio',
+    path: 'solicitar-territorio/fijos',
     component: SolicitarTerritorioComponent,
   },
+
+  {
+    path: 'solicitar-territorio/celulares',
+    component: SolicitarTerritorioComponent,
+  }
+  
 ];
 
 @NgModule({
