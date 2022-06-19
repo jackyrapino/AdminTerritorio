@@ -23,11 +23,13 @@ export class SolicitarTerritorioComponent implements OnInit {
   tipoSeleccionado: string;
   solicitud: any;
   territorios: Territorio | any;
+  showNav: boolean = true;
 
   constructor(private router: Router, private location: Location, private storageSVC: StorageService) {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.handleSection();
     });
+
   }
 
   handleSection() {
@@ -39,12 +41,19 @@ export class SolicitarTerritorioComponent implements OnInit {
     this.getHermanos();
     this.getTerritorios();
     this.getSolicitud();
+
   }
 
   getSolicitud() {
     this.solicitud = JSON.parse(localStorage.getItem('solicitud'));
+    this.setShowNav();
   }
 
+  setShowNav() {
+    if (this.solicitud) {
+      this.showNav = false;
+    }
+  }
   getTerritorios() {
     switch (this.tipoSeleccionado) {
       case 'fijos':
@@ -113,8 +122,7 @@ export class SolicitarTerritorioComponent implements OnInit {
     this.solicitud.hermano = this.hermanoSeleccionado;
     this.solicitud.tipo = this.tipoSeleccionado;
     this.solicitud.territorio = territorio;
-
     localStorage.setItem('solicitud', JSON.stringify(this.solicitud));
-    console.log(this.solicitud);
+    this.setShowNav();
   }
 }
