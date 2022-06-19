@@ -14,6 +14,8 @@ import { SolicitarTerritorioComponent } from './public/pages/solicitar-territori
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearcherPipe } from './pipes/searcher.pipe';
+import { PrivateVerHermanosComponent } from './private/pages/private-ver-hermanos/private-ver-hermanos.component';
+import { PrivateAgregarHermanosComponent } from './private/pages/private-agregar-hermanos/private-agregar-hermanos.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { SearcherPipe } from './pipes/searcher.pipe';
     CardTerritorioComponent,
     SolicitarTerritorioComponent,
     SearcherPipe,
+    PrivateVerHermanosComponent,
+    PrivateAgregarHermanosComponent,
   ],
   imports: [
     BrowserModule,

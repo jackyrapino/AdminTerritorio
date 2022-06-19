@@ -1,24 +1,22 @@
-
-.container-buttons{
-   margin-top: 25vh;
+.container-buttons {
+    margin-top: 10vh;
 }
 
 .buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  flex-direction: column;
-  gap: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .btn-option {
-  margin: auto;
+    margin: auto;
 }
 
 button {
-  width: 80vw;
-  height: 16vh;
-  font-size: 1.6em;
+    width: 80vw;
+    height: 16vh;
+    font-size: 1.6em;
 }
-
