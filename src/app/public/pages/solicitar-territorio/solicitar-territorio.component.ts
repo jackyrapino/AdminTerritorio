@@ -38,6 +38,11 @@ export class SolicitarTerritorioComponent implements OnInit {
   ngOnInit(): void {
     this.getHermanos();
     this.getTerritorios();
+    this.getSolicitud();
+  }
+
+  getSolicitud() {
+    this.solicitud = JSON.parse(localStorage.getItem('solicitud'));
   }
 
   getTerritorios() {
@@ -109,6 +114,7 @@ export class SolicitarTerritorioComponent implements OnInit {
     this.solicitud.tipo = this.tipoSeleccionado;
     this.solicitud.territorio = territorio;
 
+    localStorage.setItem('solicitud', JSON.stringify(this.solicitud));
     console.log(this.solicitud);
   }
 }

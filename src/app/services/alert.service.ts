@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AlertService {
   constructor() {}
@@ -18,12 +18,12 @@ export class AlertService {
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer);
         toast.addEventListener('mouseleave', Swal.resumeTimer);
-      },
+      }
     });
 
     Toast.fire({
       icon: icon,
-      title: text,
+      title: text
     });
   }
 
@@ -38,12 +38,12 @@ export class AlertService {
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer);
         toast.addEventListener('mouseleave', Swal.resumeTimer);
-      },
+      }
     });
 
     Toast.fire({
       icon: icon,
-      title: text,
+      title: text
     });
   }
 
@@ -58,28 +58,27 @@ export class AlertService {
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer);
         toast.addEventListener('mouseleave', Swal.resumeTimer);
-      },
+      }
     });
 
     Toast.fire({
       icon: icon,
-      title: text,
+      title: text
     });
   }
 
-  confirmAlert() {
+  confirmAlert(mensaje: string, si: string, no: string, exito: string) {
     return new Promise((resolve) => {
       Swal.fire({
-        title: '¿Esta seguro?',
+        title: mensaje,
         showDenyButton: true,
-
-        confirmButtonText: 'Si',
-        denyButtonText: `Cancelar`,
+        denyButtonText: no,
+        confirmButtonText: si
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           resolve(true);
-          Swal.fire('Post eliminado', '', 'info');
+          Swal.fire(exito, '', 'success');
         }
         resolve(false);
       });

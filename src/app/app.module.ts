@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearcherPipe } from './pipes/searcher.pipe';
 import { PrivateVerHermanosComponent } from './private/pages/private-ver-hermanos/private-ver-hermanos.component';
 import { PrivateAgregarHermanosComponent } from './private/pages/private-agregar-hermanos/private-agregar-hermanos.component';
+import { PublicMiTerritorioComponent } from './public/public-mi-territorio/public-mi-territorio.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PrivateAgregarHermanosComponent } from './private/pages/private-agregar
     SearcherPipe,
     PrivateVerHermanosComponent,
     PrivateAgregarHermanosComponent,
+    PublicMiTerritorioComponent,
   ],
   imports: [
     BrowserModule,
