@@ -16,6 +16,8 @@ import { SearcherPipe } from './shared/pipes/searcher.pipe';
 import { PrivateVerHermanosComponent } from './private/pages/private-ver-hermanos/private-ver-hermanos.component';
 import { PrivateAgregarHermanosComponent } from './private/pages/private-agregar-hermanos/private-agregar-hermanos.component';
 import { PublicMiTerritorioComponent } from './public/components/public-mi-territorio/public-mi-territorio.component';
+import { PrivateDetalleTerritorioComponent } from './private/component/private-detalle-territorio/private-detalle-territorio.component';
+import { SearcherAllFieldsPipe } from './shared/pipes/searcher-all-fields.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { PublicMiTerritorioComponent } from './public/components/public-mi-terri
     PrivateVerHermanosComponent,
     PrivateAgregarHermanosComponent,
     PublicMiTerritorioComponent,
+    PrivateDetalleTerritorioComponent,
+    SearcherAllFieldsPipe,
   ],
   imports: [
     BrowserModule,

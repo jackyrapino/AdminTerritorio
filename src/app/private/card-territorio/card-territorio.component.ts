@@ -12,6 +12,7 @@ export class CardTerritorioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if(!this.territorio.estado) this.territorio.estado = 'disponible';
   }
 
 }

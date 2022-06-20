@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 .container-buttons {
     margin-top: 10vh;
 }
@@ -19,4 +21,11 @@ button {
     width: 80vw;
     height: 16vh;
     font-size: 1.6em;
-}
+    background-color: $color-primary;
+    border-color: rgb(91, 58, 141);
+  }
+  
+  button:hover {
+    background-color: rgb(80, 44, 132);
+    border-color: rgb(91, 58, 141);
+  }

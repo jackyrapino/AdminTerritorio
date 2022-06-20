@@ -10,9 +10,11 @@ export class PrivateVerTerritoriosComponent implements OnInit {
   territorios: any;
   territoriosFijos: any;
   territoriosCelulares: any;
+  territorioSeleccionado: any;
   searchParam: any;
   loaded: boolean = false;
   filtro:string;
+  showNav:boolean = true;
 
   constructor(private storageSVC: StorageService) {}
 
@@ -28,6 +30,11 @@ export class PrivateVerTerritoriosComponent implements OnInit {
     }, 1000);
   }
 
+  seleccionarTerritorio(territorio){
+    this.territorioSeleccionado = territorio;
+    this.showNav = false;
+  }
+
   getTerritorios() {
     this.storageSVC.GetAll('territorios-fijos').subscribe((data) => {
       this.territoriosFijos = data;
@@ -38,6 +45,11 @@ export class PrivateVerTerritoriosComponent implements OnInit {
       this.territoriosCelulares = data;
       console.log(data);
     });
+  }
+
+  showCards(){
+    this.showNav = true;
+    this.territorioSeleccionado = undefined;
   }
 
   setFijos() {
