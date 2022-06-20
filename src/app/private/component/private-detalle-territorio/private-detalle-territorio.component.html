@@ -7,13 +7,8 @@
   </li>
 </nav>
 
-<div class="searcher">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="searchParam" />
-  </div>
-</div>
 
-<div class="container">
+<div class="container header-territorio">
   <div class="row">
     <div class="card card-titulo col">
       <h5 class="center-text">{{ territorio.id }}</h5>
@@ -28,6 +23,12 @@
     <div class="card card-titulo col-12" *ngIf="territorio.devolucion">
       <h5 class="center-text" *ngIf="territorio.devolucion">Devuelto: {{ territorio.devolucion | date : 'dd/MM/yyyy' }}</h5>
     </div>
+  </div>
+</div>
+
+<div class="searcher">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="searchParam" />
   </div>
 </div>
 
