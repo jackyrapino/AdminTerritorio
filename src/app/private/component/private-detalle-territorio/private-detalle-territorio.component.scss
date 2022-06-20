@@ -1,6 +1,10 @@
 
 @import '../../../../styles.scss';
 
+.header-territorio{
+  padding: 1.3em;
+}
+
 .nav-link {
   font-size: 1.4em;
   cursor: pointer;
@@ -21,6 +25,10 @@ nav{
     padding: 20px;
   }
 
+  .card{
+    user-select: none;
+  }
+
   .card-numeros {
     width: 80vw;
     height: 10vh;
@@ -28,6 +36,8 @@ nav{
     padding: 0.5em;
     margin: 0.5em;
     text-align: center;
+    user-select: none;
+    cursor: pointer;
     div {
       margin: auto;
     }
