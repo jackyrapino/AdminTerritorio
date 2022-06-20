@@ -32,6 +32,7 @@ export class PublicMiTerritorioComponent implements OnInit {
     );
     if (confirm) {
       this.storageSVC.Update(this.territorio.id, `territorios-${this.territorio.tipo}`, {
+        estado: 'disponible',
         devolucion: new Date().toLocaleDateString('en-US', {
           year: 'numeric',
           month: '2-digit',
