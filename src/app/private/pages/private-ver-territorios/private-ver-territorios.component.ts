@@ -1,5 +1,5 @@
 import { AfterContentInit, AfterViewInit, Component, OnInit } from '@angular/core';
-import { StorageService } from 'src/app/services/storage.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-private-ver-territorios',

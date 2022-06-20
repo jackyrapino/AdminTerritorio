@@ -11,12 +11,11 @@ import { PrivateAgregarTerritorioComponent } from './private/pages/private-agreg
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CardTerritorioComponent } from './private/card-territorio/card-territorio.component';
 import { SolicitarTerritorioComponent } from './public/pages/solicitar-territorio/solicitar-territorio.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearcherPipe } from './pipes/searcher.pipe';
+import { SearcherPipe } from './shared/pipes/searcher.pipe';
 import { PrivateVerHermanosComponent } from './private/pages/private-ver-hermanos/private-ver-hermanos.component';
 import { PrivateAgregarHermanosComponent } from './private/pages/private-agregar-hermanos/private-agregar-hermanos.component';
-import { PublicMiTerritorioComponent } from './public/public-mi-territorio/public-mi-territorio.component';
+import { PublicMiTerritorioComponent } from './public/components/public-mi-territorio/public-mi-territorio.component';
 
 @NgModule({
   declarations: [

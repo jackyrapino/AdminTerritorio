@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { StorageService } from 'src/app/services/storage.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
 import { Location } from '@angular/common';
 
 export interface Territorio {

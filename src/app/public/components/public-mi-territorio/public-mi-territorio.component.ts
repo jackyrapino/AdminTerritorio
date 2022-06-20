@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertService } from 'src/app/services/alert.service';
-import { StorageService } from 'src/app/services/storage.service';
+import { AlertService } from 'src/app/shared/services/alert.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-public-mi-territorio',
@@ -33,7 +33,6 @@ export class PublicMiTerritorioComponent implements OnInit {
     if (confirm) {
       this.storageSVC.Update(this.territorio.id, `territorios-${this.territorio.tipo}`, {
         devolucion: new Date().toLocaleDateString('en-US', {
-          // you can use undefined as first argument
           year: 'numeric',
           month: '2-digit',
           day: '2-digit'
