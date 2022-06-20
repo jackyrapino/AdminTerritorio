@@ -22,6 +22,11 @@ export class PublicMiTerritorioComponent implements OnInit {
     }
   }
 
+  marcarTelefono(telefono: any) {
+    let card = document.querySelector(`#telefono-${telefono}`) as HTMLElement;
+    card.classList.toggle('active');
+  }
+
   async devolverTerritorio() {
     let confirm: any = false;
     confirm = await this.alertSVC.confirmAlert(

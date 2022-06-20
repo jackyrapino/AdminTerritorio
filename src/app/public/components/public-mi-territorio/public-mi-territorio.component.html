@@ -11,7 +11,7 @@
 
   <div class="card-container">
     <div *ngFor="let num of territorio.numeros">
-      <article class="card card-numeros">
+      <article class="card card-numeros"  (click)="marcarTelefono(num)" [id]="'telefono-' + num ">
         <div>{{ num }}</div>
       </article>
     </div>
