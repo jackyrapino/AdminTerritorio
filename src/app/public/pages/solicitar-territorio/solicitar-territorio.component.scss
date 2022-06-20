@@ -1,10 +1,12 @@
+@import '../../../../styles.scss';
+
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 50px;
-    padding: 20px;
+    padding: 8px;
 }
 
 .container-center {
@@ -34,7 +36,7 @@
 
 .selected {
     color: white;
-    background-color: rgb(91,60,136);
+    background-color: $color-secondary;
 }
 
 .btn-color {

@@ -29,7 +29,6 @@ export class SolicitarTerritorioComponent implements OnInit {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.handleSection();
     });
-
   }
 
   handleSection() {
@@ -41,7 +40,6 @@ export class SolicitarTerritorioComponent implements OnInit {
     this.getHermanos();
     this.getTerritorios();
     this.getSolicitud();
-
   }
 
   getSolicitud() {
@@ -73,26 +71,32 @@ export class SolicitarTerritorioComponent implements OnInit {
 
   getLastTerritorioByDate() {
     let fechas = [];
-    let territorio;
-    let aux;
+    let territorio = {};
+    let aux = undefined;
 
     this.territorios.forEach((territorio) => {
       if (territorio.devolucion === undefined) {
         aux = territorio;
+      } else {
+        console.log(territorio.devolucion);
+        let fechaAux = new Date(territorio.devolucion);
+        fechas.push(fechaAux);
       }
-
-      let fechaAux = new Date(territorio.devolucion);
-      fechas.push(fechaAux);
     });
 
-    if (aux) {
-      return aux;
-    }
+    if (aux) return aux;
 
     if (!fechas) return;
+    console.log(fechas);
     let primerFecha = new Date(Math.min(...fechas));
-    let formatFecha = primerFecha.toLocaleDateString();
+    console.log(primerFecha);
+    let formatFecha = primerFecha.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    });
     territorio = this.territorios.find((element) => element.devolucion == formatFecha);
+    console.log(formatFecha);
     return territorio;
   }
 
@@ -118,11 +122,23 @@ export class SolicitarTerritorioComponent implements OnInit {
 
   solicitar() {
     let territorio = this.getLastTerritorioByDate();
+    let hoy = new Date();
+
     this.solicitud = {};
     this.solicitud.hermano = this.hermanoSeleccionado;
-    this.solicitud.tipo = this.tipoSeleccionado;
+    this.solicitud.fecha = hoy.toLocaleDateString('en-US', {
+      // you can use undefined as first argument
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    });
     this.solicitud.territorio = territorio;
+    this.solicitud.tipo = this.tipoSeleccionado;
+    console.log(this.solicitud);
+
     localStorage.setItem('solicitud', JSON.stringify(this.solicitud));
+    //this.storageSVC.Insert('solicitudes', this.solicitud);
+
     this.setShowNav();
   }
 }
