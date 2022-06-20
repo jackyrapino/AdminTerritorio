@@ -7,14 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-@Input() show: boolean = true;
-  constructor(private router:Router) { }
+  @Input() show: boolean = true;
+  @Input() titulo: string;
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  locationBack(){
+  locationBack() {
     window.history.back();
   }
-
 }

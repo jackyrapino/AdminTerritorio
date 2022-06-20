@@ -13,7 +13,7 @@ export class PrivateVerTerritoriosComponent implements OnInit {
   territorioSeleccionado: any;
   searchParam: any;
   loaded: boolean = false;
-  filtro:string;
+  filtro:string = "";
   showNav:boolean = true;
 
   constructor(private storageSVC: StorageService) {}
@@ -49,7 +49,13 @@ export class PrivateVerTerritoriosComponent implements OnInit {
 
   showCards(){
     this.showNav = true;
+
+    console.log(this.territorioSeleccionado.tipo);
+
+
     this.territorioSeleccionado = undefined;
+   
+    
   }
 
   setFijos() {

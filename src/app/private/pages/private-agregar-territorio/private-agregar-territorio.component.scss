@@ -1,3 +1,7 @@
+
+@import '../../../../styles.scss';
+
+
 .form-alta {
   display: flex;
   justify-content: center;
@@ -16,6 +20,17 @@
     align-items: center;
     flex-direction: row;
     gap: 10px;
+
+    button{
+
+        font-size: 1.1em;
+      }
+    
+      button, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+        box-shadow: none !important;
+        background-color: $color-secondary;
+        border: none;
+      }
 }
 
 .btn-tipo{
@@ -33,6 +48,13 @@
     text-align: center;
 }
 
-button, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.selected{
+    background-color: $color-primary !important;
     box-shadow: none !important;
-}
+    border: none;
+  }
+  
+  
+  
+
+  
