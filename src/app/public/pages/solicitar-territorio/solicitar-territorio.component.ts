@@ -3,6 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { StorageService } from 'src/app/shared/services/storage.service';
 import { Location } from '@angular/common';
+import { AlertService } from 'src/app/shared/services/alert.service';
 
 export interface Territorio {
   id: string;
@@ -29,7 +30,8 @@ export class SolicitarTerritorioComponent implements OnInit {
   constructor(
     private router: Router,
     private location: Location,
-    private storageSVC: StorageService
+    private storageSVC: StorageService,
+    private alertSVC: AlertService
   ) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -81,6 +83,8 @@ export class SolicitarTerritorioComponent implements OnInit {
     let territorio = {};
     let aux = undefined;
     let territorios = this.filtrarDisponibles();
+
+    if (!territorios) return false;
 
     territorios.forEach((territorio) => {
       if (territorio.devolucion === undefined) {
@@ -147,6 +151,13 @@ export class SolicitarTerritorioComponent implements OnInit {
 
   solicitar() {
     let territorio = this.getLastTerritorioByDate();
+    if (!territorio) {
+      this.alertSVC.alertCenter(
+        'info',
+        'No hay territorios disponibles, por favor notifique al encargado de territorios.'
+      );
+      return;
+    }
     let hoy = new Date();
 
     this.solicitud = {};

@@ -35,6 +35,8 @@ export class PublicMiTerritorioComponent implements OnInit {
     let confirm: any = false;
     if (this.territorio.tipo == 'celulares') {
       this.territorio.estado = 'eliminado';
+    } else {
+      this.territorio.estado = 'disponible';
     }
     confirm = await this.alertSVC.confirmAlert(
       `¿Desea devolver el territorio ${this.territorio.id}?`,
@@ -47,7 +49,7 @@ export class PublicMiTerritorioComponent implements OnInit {
         this.territorio.id,
         `territorios-${this.territorio.tipo}`,
         {
-          estado: 'disponible',
+          estado: this.territorio.estado,
           devolucion: new Date().toLocaleDateString('en-US', {
             year: 'numeric',
             month: '2-digit',

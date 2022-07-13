@@ -1,5 +1,6 @@
 <article>
     <div class="card" [class]="territorio.estado">
-        <div class="name">{{territorio.id}}</div>
+        <div class="name">{{ territorio.id }}</div>
+        <div class="status">{{ territorio.estado | titlecase }}</div>
     </div>
 </article>
