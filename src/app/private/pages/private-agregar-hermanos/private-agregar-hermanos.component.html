@@ -1,1 +1,19 @@
-<p>private-agregar-hermanos works!</p>
+<app-navbar></app-navbar>
+
+<section class="form-alta mt-2">
+    <form [formGroup]="formGroup" class="card">
+        <h3 class="text-center">Alta de hermanos</h3>
+
+        <div class="mt-4">
+            <label for="">Nombre y Apellido</label>
+            <input formControlName="nombre" type="text" placeholder="Ingrese Nombre y Apellido" class="form-control" [class]="isValidField('nombre')" (ngModelChange)="existeHermano()" />
+            <span *ngIf="debeMostrarError('nombre')" class="invalid-feedback">
+        {{ obtenerTextoError("nombre") }}
+      </span>
+        </div>
+
+        <button class="btn btn-success mt-3 mb-1" (click)="addHermano()" [disabled]="formGroup.invalid">
+      Agregar
+    </button>
+    </form>
+</section>

@@ -6,12 +6,16 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 @Component({
   selector: 'app-public-mi-territorio',
   templateUrl: './public-mi-territorio.component.html',
-  styleUrls: ['./public-mi-territorio.component.scss']
+  styleUrls: ['./public-mi-territorio.component.scss'],
 })
 export class PublicMiTerritorioComponent implements OnInit {
   @Input() territorio: any;
 
-  constructor(private storageSVC: StorageService, private alertSVC: AlertService, private router: Router) {}
+  constructor(
+    private storageSVC: StorageService,
+    private alertSVC: AlertService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     console.log(this.territorio);
@@ -24,6 +28,9 @@ export class PublicMiTerritorioComponent implements OnInit {
 
   async devolverTerritorio() {
     let confirm: any = false;
+    if (this.territorio.tipo == 'celulares') {
+      this.territorio.estado = 'eliminado';
+    }
     confirm = await this.alertSVC.confirmAlert(
       `¿Desea devolver el territorio ${this.territorio.id}?`,
       'Si',
@@ -31,13 +38,17 @@ export class PublicMiTerritorioComponent implements OnInit {
       'Devuelto correctamente'
     );
     if (confirm) {
-      this.storageSVC.Update(this.territorio.id, `territorios-${this.territorio.tipo}`, {
-        devolucion: new Date().toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit'
-        })
-      });
+      this.storageSVC.Update(
+        this.territorio.id,
+        `territorios-${this.territorio.tipo}`,
+        {
+          devolucion: new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+          }),
+        }
+      );
 
       localStorage.removeItem('solicitud');
       this.router.navigate(['/']);

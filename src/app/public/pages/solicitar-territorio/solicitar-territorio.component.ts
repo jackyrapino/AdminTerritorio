@@ -14,7 +14,7 @@ export interface Territorio {
 @Component({
   selector: 'app-solicitar-territorio',
   templateUrl: './solicitar-territorio.component.html',
-  styleUrls: ['./solicitar-territorio.component.scss']
+  styleUrls: ['./solicitar-territorio.component.scss'],
 })
 export class SolicitarTerritorioComponent implements OnInit {
   hermanos: any;
@@ -25,10 +25,16 @@ export class SolicitarTerritorioComponent implements OnInit {
   territorios: Territorio | any;
   showNav: boolean = true;
 
-  constructor(private router: Router, private location: Location, private storageSVC: StorageService) {
-    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
-      this.handleSection();
-    });
+  constructor(
+    private router: Router,
+    private location: Location,
+    private storageSVC: StorageService
+  ) {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.handleSection();
+      });
   }
 
   handleSection() {
@@ -93,9 +99,11 @@ export class SolicitarTerritorioComponent implements OnInit {
     let formatFecha = primerFecha.toLocaleDateString('en-US', {
       year: 'numeric',
       month: '2-digit',
-      day: '2-digit'
+      day: '2-digit',
     });
-    territorio = this.territorios.find((element) => element.devolucion == formatFecha);
+    territorio = this.territorios.find(
+      (element) => element.devolucion == formatFecha
+    );
     console.log(formatFecha);
     return territorio;
   }
@@ -116,7 +124,9 @@ export class SolicitarTerritorioComponent implements OnInit {
   }
 
   removeSelected() {
-    let card = document.querySelector(`#${this.hermanoSeleccionado.id}`) as HTMLElement;
+    let card = document.querySelector(
+      `#${this.hermanoSeleccionado.id}`
+    ) as HTMLElement;
     card.classList.remove('selected');
   }
 
@@ -130,7 +140,7 @@ export class SolicitarTerritorioComponent implements OnInit {
       // you can use undefined as first argument
       year: 'numeric',
       month: '2-digit',
-      day: '2-digit'
+      day: '2-digit',
     });
     this.solicitud.territorio = territorio;
     this.solicitud.tipo = this.tipoSeleccionado;
