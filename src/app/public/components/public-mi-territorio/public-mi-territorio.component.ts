@@ -26,6 +26,11 @@ export class PublicMiTerritorioComponent implements OnInit {
     }
   }
 
+  marcarTelefono(telefono: any) {
+    let card = document.querySelector(`#telefono-${telefono}`) as HTMLElement;
+    card.classList.toggle('active');
+  }
+
   async devolverTerritorio() {
     let confirm: any = false;
     if (this.territorio.tipo == 'celulares') {
@@ -42,6 +47,7 @@ export class PublicMiTerritorioComponent implements OnInit {
         this.territorio.id,
         `territorios-${this.territorio.tipo}`,
         {
+          estado: 'disponible',
           devolucion: new Date().toLocaleDateString('en-US', {
             year: 'numeric',
             month: '2-digit',

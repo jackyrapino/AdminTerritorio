@@ -9,6 +9,7 @@ export interface Territorio {
   tipo: string;
   numeros: any[];
   devolucion?: any;
+  estado?: string;
 }
 
 @Component({
@@ -79,8 +80,9 @@ export class SolicitarTerritorioComponent implements OnInit {
     let fechas = [];
     let territorio = {};
     let aux = undefined;
+    let territorios = this.filtrarDisponibles();
 
-    this.territorios.forEach((territorio) => {
+    territorios.forEach((territorio) => {
       if (territorio.devolucion === undefined) {
         aux = territorio;
       } else {
@@ -101,11 +103,24 @@ export class SolicitarTerritorioComponent implements OnInit {
       month: '2-digit',
       day: '2-digit',
     });
-    territorio = this.territorios.find(
+    territorio = territorios.find(
       (element) => element.devolucion == formatFecha
     );
     console.log(formatFecha);
     return territorio;
+  }
+
+  filtrarDisponibles() {
+    let disponibles = [];
+    this.territorios.forEach((territorio) => {
+      if (
+        territorio.estado === 'disponible' ||
+        territorio.estado === undefined
+      ) {
+        disponibles.push(territorio);
+      }
+    });
+    return disponibles;
   }
 
   getHermanos() {
@@ -147,6 +162,13 @@ export class SolicitarTerritorioComponent implements OnInit {
     console.log(this.solicitud);
 
     localStorage.setItem('solicitud', JSON.stringify(this.solicitud));
+    this.storageSVC.Update(
+      this.solicitud.territorio.id,
+      `territorios-${this.solicitud.territorio.tipo}`,
+      {
+        estado: 'entregado',
+      }
+    );
     //this.storageSVC.Insert('solicitudes', this.solicitud);
 
     this.setShowNav();
